@@ -3,7 +3,7 @@ let maven_prefix = "src/main/java"
 let project_prefix = FindRootDirectory()."/".maven_prefix
 
 function! GetImportSuggestions(classname)
-   let files = uniq(sort(map(ListFileTag("^".a:classname."$", "c"), "v:val['filename']")))
+   let files = uniq(sort(map(ListFileTag("^".a:classname."$", ["c","i"]), "v:val['filename']")))
    return map(files, "ConvertFileToQualifyedClass(v:val)")
 endfunction
 
@@ -29,8 +29,8 @@ function! CompleteImport(classname)
    return ''
 endfunction
 
-function! ListFileTag(tagname, kind)
-   let files = filter(taglist(a:tagname), 'v:val["kind"] == "'.a:kind.'"')
+function! ListFileTag(tagname, kindList)
+   let files = filter(taglist(a:tagname), 'index('.string(a:kindList).', v:val["kind"]) >= 0')
    return files 
 endfunction
 
