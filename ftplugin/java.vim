@@ -1,6 +1,5 @@
 "TODO:parse project to find non standard prefix
-let maven_prefix = "src/main/java"
-let project_prefix = FindRootDirectory()."/".maven_prefix
+let s:maven_prefix = "src/main/java"
 
 function! GetImportSuggestions(classname)
    let files = uniq(sort(map(ListFileTag("^".a:classname."$", ["c","i"]), "v:val['filename']")))
@@ -37,10 +36,11 @@ endfunction
 function! ConvertFileToQualifyedClass(filename)
    let jdk_home = $JDK_HOME."/src"
    "TODO: detect prefix for word (can be the project, the jdk or dependencies
+   let fileNoPrefix = a:filename
    if a:filename =~ "^".jdk_home
       let fileNoPrefix = substitute(a:filename, "^".jdk_home,'','')
-   elseif a:filename =~ "^".project_prefix
-      let fileNoPrefix = substitute(a:filename, "^".project_prefix,'','')
+   elseif a:filename =~ "^".s:maven_prefix
+      let fileNoPrefix = substitute(a:filename, "^".s:maven_prefix,'','')
    endif
    let extension = "java"
    let fileNoPrefixNoExtension = substitute(fileNoPrefix, '.'.extension.'$', '', '')
