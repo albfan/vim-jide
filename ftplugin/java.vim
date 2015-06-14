@@ -68,3 +68,5 @@ endfunction
 
 noremap <Leader>ji :call InsertImport()<CR>
 
+noremap <Leader>jt :!ctags -R s:maven_prefix<CR> 
+
