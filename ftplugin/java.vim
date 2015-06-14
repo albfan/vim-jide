@@ -58,8 +58,9 @@ function! InsertImport()
    if !CheckIfSuggestionIsOnlyOneAndAlreadyExist(word)
       G
       call search("^\s*import","b")
-      "feedkeys is executed at the end, so go back must be invoked inside feedkeys
       call feedkeys("oimport \<C-R>=CompleteImport('".word."')\<CR>", 't')
+      "feedkeys is executed at the end, so go back must be invoked inside feedkeys
+      "call feedkeys("oimport \<C-R>=CompleteImport('".word."')\<CR>;\<Esc>".(save_cursor[1]+1)."G".save_cursor[2]."|\<Esc>", 't')
    else
       echo "class already imported"
       call setpos('.', save_cursor)
