@@ -1,0 +1,16 @@
+language: vim
+
+before_script: |
+  git clone https://github.com/albfan/vader.vim.git
+
+script: |
+  cd t
+  ./run ! > /dev/null
+
+branches:
+  only:
+    - wip-getter-setter
+
+notifications:
+  email:
+    -  albertofanjul@gmail.com

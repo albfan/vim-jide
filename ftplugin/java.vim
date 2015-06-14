@@ -70,3 +70,5 @@ noremap <Leader>ji :call InsertImport()<CR>
 
 noremap <Leader>jt :!ctags -R s:maven_prefix<CR> 
 
+noremap <Leader>jgs mawv/ <CR>h"ty/ <CR>wvwhh"ny/getters<CR>$a<CR><CR><Esc>xxapublic <Esc>"tpa <Esc>"npbiget<Esc>l~ea() {<CR>return <Esc>"npa;<CR>}<Esc>=<CR><Esc>/setters<CR>$a<CR><CR><Esc>xxapublic void <Esc>"npbiset<Esc>l~ea(<Esc>"tpa <Esc>"npa) {<CR>this.<Esc>"npa = <Esc>"npa;<CR>}<Esc>=<CR>`ak
+

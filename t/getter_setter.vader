@@ -1,0 +1,37 @@
+#
+# Add getter and setter
+#
+
+Given java (basic java class with two markers):
+  public class MyClass
+  {
+    private String eco = "hoge";
+    private String foo = "baz";
+  
+    //getters
+  
+    //setters
+  }
+
+Do (Add getter and setter to java file):
+  4G
+  \<Leader>jgs
+
+Expect java (getter and setter generated):
+  public class MyClass
+  {
+    private String eco = "hoge";
+    private String foo = "baz";
+  
+    //getters
+    //
+    public String getFoo() {
+      return foo;
+    }
+  
+    //setters
+    //
+    public void setFoo(String foo) {
+      this.foo = foo;
+    }
+  }

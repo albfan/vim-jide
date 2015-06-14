@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd $(dirname $BASH_SOURCE)
+
+vim -Nu <(cat << EOF
+filetype plugin indent on
+let mapleader = ","
+set expandtab
+set tabstop=2
+set shiftwidth=2
+syntax enable
+for dep in ['vader.vim']
+  execute 'set rtp+=' . finddir(dep, expand('~/.vim').'/**')
+endfor
+set rtp+=..
+EOF
+) +Vader$1 *
