@@ -39,7 +39,7 @@ Generate tag index inside project too
 - tagbar.vim
 - vim-minimap
 
-## Objetives
+## Objectives
 
 By now it is heavily based on maven and ctags, but its purpose is to be totally agnostic about feature implementations. PR are desired and well received.
 
